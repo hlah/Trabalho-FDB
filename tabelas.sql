@@ -12,7 +12,8 @@ uf CHAR(2) NOT NULL
 );
 
 -- A entidade Prontuario tem sua tabela própia
--- Como o paciente tem uma relação de um para um como o prontuário utilizamos a mesma tabela para representar os dois.
+-- Como o paciente tem uma relação de um para
+ um como o prontuário utilizamos a mesma tabela para representar os dois.
 CREATE TABLE Prontuario (
 numero_prontuario INT NOT NULL PRIMARY KEY,
 rg CHAR(10) NOT NULL UNIQUE,
@@ -108,9 +109,6 @@ coren VARCHAR NOT NULL UNIQUE,
 especialidade VARCHAR,
 FOREIGN KEY(codigo_func) REFERENCES Funcionario
 );
-
-
-
 
 -- Relacionamento 'Trabalho' é (n, n) e por isso precisa de tabaela propria
 CREATE TABLE Trabalho (
