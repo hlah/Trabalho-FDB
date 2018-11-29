@@ -1,5 +1,14 @@
 ﻿-- Tipo enumeravel para sexo
 CREATE TYPE SEXO_T AS ENUM('M', 'F');
+-- DROP TYPE SEXO_T;
+
+-- Entidade hospital recebe tabela própia
+CREATE TABLE Hospital (
+nome_hospital VARCHAR NOT NULL PRIMARY KEY,
+rua VARCHAR NOT NULL,
+cidade VARCHAR NOT NULL,
+uf CHAR(2) NOT NULL
+);
 
 -- A entidade Prontuario tem sua tabela própia
 -- Como o paciente tem uma relação de um para um como o prontuário utilizamos a mesma tabela para representar os dois.
@@ -61,11 +70,14 @@ PRIMARY KEY(cid, numero_prontuario, data_diag)
 
 -- Internação recebe entidade própria
 -- Relacionamento 'internado' é (1, n), referencia fica no lado n, ou seja, na entidade 'internado'
+-- Relacionamento 'InternadoEm' é (1, n), a referencia fica no lado n, ou seja, na entidade 'internado'
 CREATE TABLE Internacao (
 numero_prontuario INT NOT NULL,
 data_inicio DATE NOT NULL,
 data_fim DATE,
+nome_hospital VARCHAR NOT NULL,
 FOREIGN KEY(numero_prontuario) REFERENCES Prontuario,
+FOREIGN KEY(nome_hospital) REFERENCES Hospital,
 PRIMARY KEY(numero_prontuario, data_inicio)
 );
 
@@ -97,13 +109,7 @@ FOREIGN KEY(codigo_func) REFERENCES Funcionario
 );
 
 
--- Entidade hospital recebe tabela própia
-CREATE TABLE Hospital (
-nome_hospital VARCHAR NOT NULL PRIMARY KEY,
-rua VARCHAR NOT NULL,
-cidade VARCHAR NOT NULL,
-uf CHAR(2) NOT NULL
-);
+
 
 -- Relacionamento 'Trabalho' é (n, n) e por isso precisa de tabaela propria
 CREATE TABLE Trabalho (
@@ -155,10 +161,13 @@ FOREIGN KEY(codigo_equipe) REFERENCES Equipe
 
 -- Entidade prescrição tem tabela própria
 -- Relacionamento 'Prescrito' é (1, n) referencia fica em lado 'n', na prescrição
+-- Relacionamento 'Prescreve' é (1, n) referencia fica em lado 'n', na prescrição
 CREATE TABLE Prescricao (
 data_hora TIMESTAMP NOT NULL,
 numero_prontuario INT NOT NULL,
+medico_assinante VARCHAR NOT NULL,
 FOREIGN KEY(numero_prontuario) REFERENCES Prontuario,
+FOREIGN KEY(medico_assinante) REFERENCES Medico(crm),
 PRIMARY KEY(data_hora, numero_prontuario)
 );
 
@@ -178,7 +187,7 @@ modo_uso VARCHAR,
 FOREIGN KEY(data_hora, numero_prontuario) REFERENCES Prescricao,
 FOREIGN KEY(nome_medicamento) REFERENCES Medicamento,
 PRIMARY KEY(nome_medicamento, numero_prontuario, data_hora)
-)
+);
 
 -- Relacionamento 'Administara' é (n, n), precisa de tabela própria
 CREATE TABLE Administra (
@@ -186,6 +195,7 @@ coren VARCHAR NOT NULL,
 data_hora TIMESTAMP NOT NULL,
 numero_prontuario INT NOT NULL,
 FOREIGN KEY(coren) REFERENCES Enfermeira(coren),
-FOREIGN KEY(data_hora, numero_prontuario) REFERENCES Prontuario,
-PRIMARY KEY(coren, data_hora, nome_pronturaio)
+FOREIGN KEY(data_hora, numero_prontuario) REFERENCES Prescricao,
+PRIMARY KEY(coren, data_hora, numero_prontuario)
 );
+
