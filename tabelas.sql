@@ -1,5 +1,6 @@
 ﻿-- Tipo enumeravel para sexo
 CREATE TYPE SEXO_T AS ENUM('M', 'F');
+
 -- DROP TYPE SEXO_T;
 
 -- Entidade hospital recebe tabela própia
@@ -14,7 +15,7 @@ uf CHAR(2) NOT NULL
 -- Como o paciente tem uma relação de um para um como o prontuário utilizamos a mesma tabela para representar os dois.
 CREATE TABLE Prontuario (
 numero_prontuario INT NOT NULL PRIMARY KEY,
-rg VARCHAR NOT NULL UNIQUE,
+rg CHAR(10) NOT NULL UNIQUE,
 nome VARCHAR NOT NULL,
 data_nascimento DATE,
 sexo SEXO_T NOT NULL,
@@ -24,7 +25,7 @@ nacionalidade VARCHAR
 -- Visitante também possui sua tabela própia
 -- Só deve ser criado quando realizar uma visita
 CREATE TABLE Visitante (
-rg_visitante VARCHAR NOT NULL PRIMARY KEY,
+rg_visitante CHAR(10) NOT NULL PRIMARY KEY,
 nome_visitante VARCHAR NOT NULL
 );
 
@@ -174,7 +175,8 @@ PRIMARY KEY(data_hora, numero_prontuario)
 -- Entidade Medicamento recebe entidade própria
 CREATE TABLE Medicamento (
 nome_medicamento VARCHAR NOT NULL PRIMARY KEY,
-custo FLOAT NOT NULL
+quantidade FLOAT NOT NULL,
+unidade VARCHAR NOT NULL
 );
 
 -- Relacionamento 'ComTratamento' é (n, n), precisa de tabela própria
