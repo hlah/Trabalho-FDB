@@ -1,0 +1,23 @@
+Parte1:
+	PDF com UdD..
+	PDF com diagrama ER
+	PDF dicionario de dados
+	arquivo do BR-MODELO
+
+Parte2:
+	PDF Mapeamento modelo ER
+	tabelas.sql: Um arquivo SQL contendo suas tabelas
+	instancias.sql: Conjunto com comandos de criação de instâncias
+
+Parte3:
+	consultas.sql: Um arquivo SQL contendo suas consultas,
+				   com enunciado (na forma de comentário) e comando SQL.
+   	procedimento.sql: um arquivo SQL contendo seu procedimentos, 
+                      explicando o objetivo do procedimento,
+                      e o procedimentos programado. 
+
+Parte4:
+    Documento PDF: Um relatório descrevendo a parte do seu código onde você
+                   conecta e acessa a base de dados, ilustrado por porções
+                   do código correspondente.
+    Código (.zip): do programa.  
