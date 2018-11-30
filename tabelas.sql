@@ -1,7 +1,10 @@
-﻿-- Tipo enumeravel para sexo
+﻿-- RESET
+DROP TYPE SEXO_T;
+
+-- Tipo enumeravel para sexo
 CREATE TYPE SEXO_T AS ENUM('M', 'F');
 
--- DROP TYPE SEXO_T;
+
 
 -- Entidade hospital recebe tabela própia
 CREATE TABLE Hospital (
@@ -95,7 +98,7 @@ salario FLOAT NOT NULL
 );
 
 -- A entidade médico é uma especialização do funcionario, recebe tabela propia
-CREATE TABLE Medico (
+CREATE TABLE Medica (
 codigo_func INT NOT NULL PRIMARY KEY,
 crm VARCHAR NOT NULL UNIQUE,
 especialidade VARCHAR,
@@ -124,7 +127,7 @@ CREATE TABLE Assiste (
 crm VARCHAR NOT NULL,
 numero_prontuario INT NOT NULL,
 data_inicio DATE NOT NULL,
-FOREIGN KEY(crm) REFERENCES Medico(crm),
+FOREIGN KEY(crm) REFERENCES Medica(crm),
 FOREIGN KEY(numero_prontuario, data_inicio) REFERENCES Internacao,
 PRIMARY KEY(crm, numero_prontuario, data_inicio)
 );
@@ -162,11 +165,11 @@ FOREIGN KEY(codigo_equipe) REFERENCES Equipe
 -- Relacionamento 'Prescrito' é (1, n) referencia fica em lado 'n', na prescrição
 -- Relacionamento 'Prescreve' é (1, n) referencia fica em lado 'n', na prescrição
 CREATE TABLE Prescricao (
-data_hora TIMESTAMP NOT NULL,
 numero_prontuario INT NOT NULL,
+data_hora TIMESTAMP NOT NULL,
 medico_assinante VARCHAR NOT NULL,
 FOREIGN KEY(numero_prontuario) REFERENCES Prontuario,
-FOREIGN KEY(medico_assinante) REFERENCES Medico(crm),
+FOREIGN KEY(medico_assinante) REFERENCES Medica(crm),
 PRIMARY KEY(data_hora, numero_prontuario)
 );
 
@@ -191,9 +194,9 @@ PRIMARY KEY(nome_medicamento, numero_prontuario, data_hora)
 
 -- Relacionamento 'Administara' é (n, n), precisa de tabela própria
 CREATE TABLE Administra (
-coren VARCHAR NOT NULL,
-data_hora TIMESTAMP NOT NULL,
 numero_prontuario INT NOT NULL,
+data_hora TIMESTAMP NOT NULL,
+coren VARCHAR NOT NULL,
 FOREIGN KEY(coren) REFERENCES Enfermeira(coren),
 FOREIGN KEY(data_hora, numero_prontuario) REFERENCES Prescricao,
 PRIMARY KEY(coren, data_hora, numero_prontuario)

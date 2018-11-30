@@ -53,6 +53,7 @@ INSERT INTO Internacao VALUES( 5, '2018-11-10', NULL, 'SANTA CASA' );
 INSERT INTO Internacao VALUES( 6, '2018-10-01', '2018-10-31', 'SANTA CASA' );
 INSERT INTO Internacao VALUES( 7, '2018-10-01', '2018-10-15', 'PRONTO SOCORRO' );
 INSERT INTO Internacao VALUES( 8, '2018-09-01', '2018-10-11', 'PRONTO SOCORRO' );
+INSERT INTO Internacao VALUES( 9, '2018-09-02', '2018-10-13', 'PRONTO SOCORRO' );
 INSERT INTO Internacao VALUES( 10, '2017-08-09', '2017-12-10', 'SANTA CASA' );
 INSERT INTO Internacao VALUES( 10, '2017-11-09', '2017-11-15', 'SANTA CASA' );
 INSERT INTO Internacao VALUES( 3, '2018-10-10', '2017-12-05', 'HCPA' );
@@ -105,6 +106,7 @@ INSERT INTO Diagnostico VALUES( 'F11', 10, '2017-08-10' );
 INSERT INTO Diagnostico VALUES( 'E0', 5, '2017-10-10' );
 INSERT INTO Diagnostico VALUES( 'G10', 4, '2018-04-06' );
 INSERT INTO Diagnostico VALUES( 'G10', 8, '2018-09-02' );
+INSERT INTO Diagnostico VALUES( 'F10', 3, '2018-10-11' );
 
 -- Funcionarios
 INSERT INTO Funcionario VALUES( 1, 'Alberto', 9000 );
@@ -127,30 +129,168 @@ INSERT INTO Funcionario VALUES( 17, 'Otavio', 8400 );
 INSERT INTO Funcionario VALUES( 18, 'Tais', 11000 );
 INSERT INTO Funcionario VALUES( 19, 'Ana', 10400 );
 INSERT INTO Funcionario VALUES( 20, 'Livia', 12000 );
+INSERT INTO Funcionario VALUES( 21, 'Anabelle', 12000 );
+INSERT INTO Funcionario VALUES( 22, 'Maurício', 12200 );
 
 -- Medicos
-INSERT INTO Medico VALUES( 1, '120931', NULL);
-INSERT INTO Medico VALUES( 2, '123445', NULL);
-INSERT INTO Medico VALUES( 3, '434478', 'Pneumologista');
-INSERT INTO Medico VALUES( 4, '737374', 'Pneumologista');
-INSERT INTO Medico VALUES( 5, '122833', 'Pneumologista');
-INSERT INTO Medico VALUES( 6, '273789', 'Nefrologista');
-INSERT INTO Medico VALUES( 7, '538374', 'Nefrologista');
-INSERT INTO Medico VALUES( 8, '435717', 'Nefrologista');
-INSERT INTO Medico VALUES( 9, '521345', 'Cardiologista');
-INSERT INTO Medico VALUES( 10, '123444', 'Cardiologista');
+INSERT INTO Medica VALUES( 1, '120931', NULL);
+INSERT INTO Medica VALUES( 2, '123445', NULL);
+INSERT INTO Medica VALUES( 3, '434478', 'Pneumologista');
+INSERT INTO Medica VALUES( 4, '737374', 'Cirurgião Plástico');
+INSERT INTO Medica VALUES( 5, '122833', 'Pneumologista');
+INSERT INTO Medica VALUES( 6, '273789', 'Cirurgião Tórax');
+INSERT INTO Medica VALUES( 7, '538374', 'Cardiologista');
+INSERT INTO Medica VALUES( 8, '435717', 'Nefrologista');
+INSERT INTO Medica VALUES( 9, '521345', 'Cardiologista');
+INSERT INTO Medica VALUES( 10, '123444', 'Socorrista');
+INSERT INTO Medica VALUES( 21, '231231', 'Cirurgão Cardiaco');
 
 -- Enfermeiras
-INSERT INTO Medico VALUES( 11, '1234421', NULL);
-INSERT INTO Medico VALUES( 12, '4123516', NULL);
-INSERT INTO Medico VALUES( 13, '5372463', 'Cirurgia');
-INSERT INTO Medico VALUES( 14, '7526234', 'Pneumologista');
-INSERT INTO Medico VALUES( 15, '5274543', 'Infectologista');
-INSERT INTO Medico VALUES( 16, '5375754', NULL);
-INSERT INTO Medico VALUES( 17, '5736345', 'Nefrologista');
-INSERT INTO Medico VALUES( 18, '5374534', 'Nefrologista');
-INSERT INTO Medico VALUES( 19, '9677567', 'Cirurgia');
-INSERT INTO Medico VALUES( 20, '3456544', 'Cardiologista');
+INSERT INTO Enfermeira VALUES( 11, '1234421', NULL);
+INSERT INTO Enfermeira VALUES( 12, '4123516', NULL);
+INSERT INTO Enfermeira VALUES( 13, '5372463', 'Cirurgia');
+INSERT INTO Enfermeira VALUES( 14, '7526234', 'Cirurgia');
+INSERT INTO Enfermeira VALUES( 15, '5274543', 'Infectologista');
+INSERT INTO Enfermeira VALUES( 16, '5375754', 'Cirurgia');
+INSERT INTO Enfermeira VALUES( 17, '5736345', 'Cirurgia');
+INSERT INTO Enfermeira VALUES( 18, '5374534', NULL);
+INSERT INTO Enfermeira VALUES( 19, '9677567', 'Cirurgia');
+INSERT INTO Enfermeira VALUES( 20, '3456544', 'Infectologista');
+INSERT INTO Enfermeira VALUES( 22, '2316589', 'Cirurgia');
+
+-- Trabalho
+INSERT INTO Trabalho VALUES( 1, 'HCPA' );
+INSERT INTO Trabalho VALUES( 2, 'HCPA' );
+INSERT INTO Trabalho VALUES( 3, 'HCPA' );
+INSERT INTO Trabalho VALUES( 4, 'HCPA' );
+INSERT INTO Trabalho VALUES( 5, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 6, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 7, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 8, 'PRONTO SOCORRO' );
+INSERT INTO Trabalho VALUES( 9, 'PRONTO SOCORRO' );
+INSERT INTO Trabalho VALUES( 10, 'PRONTO SOCORRO' );
+INSERT INTO Trabalho VALUES( 11, 'HCPA' );
+INSERT INTO Trabalho VALUES( 12, 'HCPA' );
+INSERT INTO Trabalho VALUES( 13, 'HCPA' );
+INSERT INTO Trabalho VALUES( 14, 'HCPA' );
+INSERT INTO Trabalho VALUES( 15, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 16, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 17, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 17, 'PRONTO SOCORRO' );
+INSERT INTO Trabalho VALUES( 18, 'PRONTO SOCORRO' );
+INSERT INTO Trabalho VALUES( 19, 'PRONTO SOCORRO' );
+INSERT INTO Trabalho VALUES( 20, 'PRONTO SOCORRO' );
+INSERT INTO Trabalho VALUES( 20, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 21, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 22, 'SANTA CASA' );
+
+-- TODO: Trigger: verificar se médico assistente trabalha no mesmo hospital da internação
+
+-- Assiste
+INSERT INTO Assiste VALUES( '120931', 1, '2018-11-10' );
+INSERT INTO Assiste VALUES( '123445', 1, '2018-11-10' );
+INSERT INTO Assiste VALUES( '120931', 2, '2018-10-10' );
+INSERT INTO Assiste VALUES( '123445', 3, '2017-08-10' );
+INSERT INTO Assiste VALUES( '123445', 4, '2018-04-05' );
+INSERT INTO Assiste VALUES( '122833', 5, '2018-11-10' );
+INSERT INTO Assiste VALUES( '538374', 6, '2018-10-01' );
+INSERT INTO Assiste VALUES( '521345', 7, '2018-10-01' );
+INSERT INTO Assiste VALUES( '435717', 8, '2018-09-01' );
+INSERT INTO Assiste VALUES( '123444', 9, '2018-09-02' );
+INSERT INTO Assiste VALUES( '122833', 10, '2017-08-09' );
+INSERT INTO Assiste VALUES( '122833', 10, '2017-11-09' );
+INSERT INTO Assiste VALUES( '434478', 3, '2018-10-10' );
+INSERT INTO Assiste VALUES( '123445', 7, '2017-10-01' );
+INSERT INTO Assiste VALUES( '122833', 5, '2018-10-01' );
+INSERT INTO Assiste VALUES( '122833',  5, '2017-10-09' );
+INSERT INTO Assiste VALUES( '273789',  5, '2017-10-09' );
 
 
+
+-- Equipe (não criamos 10 pois não faria sentido criar equipes com poucos integrantes, se criassemos várias seriam necessários muitos funcionarios)
+INSERT INTO Equipe VALUES( 1, 'Cirurgia Toraxica', 'SANTA CASA' );
+INSERT INTO Equipe VALUES( 2, 'Cirurgia Cardiaca', 'SANTA CASA' );
+INSERT INTO Equipe VALUES( 3, 'Cirurgia Plástica', 'HCPA' );
+
+-- Integrantes
+INSERT INTO Integrante VALUES( 6, 1 );
+INSERT INTO Integrante VALUES( 16, 1 );
+INSERT INTO Integrante VALUES( 17, 1 );
+INSERT INTO Integrante VALUES( 21, 2 );
+INSERT INTO Integrante VALUES( 16, 2 );
+INSERT INTO Integrante VALUES( 17, 2 );
+INSERT INTO Integrante VALUES( 22, 2 );
+INSERT INTO Integrante VALUES( 4, 3 );
+INSERT INTO Integrante VALUES( 13, 3 );
+INSERT INTO Integrante VALUES( 14, 3 );
+
+-- Cirurgias
+INSERT INTO Cirurgia VALUES( 1, 5, '2017-10-09', 1, 'Remoção de Tumor Pulmonar', 'Incisão feita a partir do [...] suturado com microfio 90' );
+INSERT INTO Cirurgia VALUES( 2, 5, '2018-10-01', 1, 'Inspeção torácica', 'Incisão feita a partir do [...] suturado com microfio 90' );
+INSERT INTO Cirurgia VALUES( 3, 5, '2018-11-10', 1, 'Remoção de Metástases', 'Incisão feita a partir do [...] suturado com microfio 90' );
+INSERT INTO Cirurgia VALUES( 4, 6, '2018-10-01', 2, 'Ponte de Safena', 'Incisão feita a partir do [...] suturado com microfio 90' );
+INSERT INTO Cirurgia VALUES( 5, 4, '2018-04-05', 3, 'Redesignação Sexual', 'Incisão feita a partir do [...] suturado com microfio 90' );
+
+-- Prescrição
+INSERT INTO Prescricao VALUES( 1, '2018-11-10 09:00:00', '120931' );
+INSERT INTO Prescricao VALUES( 2, '2018-10-10 09:00:00', '120931' );
+INSERT INTO Prescricao VALUES( 5, '2018-11-10 09:00:00', '122833' );
+INSERT INTO Prescricao VALUES( 6, '2018-10-01 09:00:00', '538374' );
+INSERT INTO Prescricao VALUES( 7, '2018-10-01 09:00:00', '521345' );
+INSERT INTO Prescricao VALUES( 8, '2018-09-01 09:00:00', '435717' );
+INSERT INTO Prescricao VALUES( 9, '2018-09-02 09:00:00', '123444' );
+INSERT INTO Prescricao VALUES( 10, '2017-08-09 09:00:00', '122833' );
+INSERT INTO Prescricao VALUES( 10, '2017-11-09 09:00:00', '122833' );
+INSERT INTO Prescricao VALUES( 3, '2018-10-10 09:00:00', '434478' );
+INSERT INTO Prescricao VALUES( 7, '2017-10-01 09:00:00', '123445' );
+INSERT INTO Prescricao VALUES( 5, '2018-10-01 09:00:00', '122833' );
+INSERT INTO Prescricao VALUES( 5, '2017-10-09 09:00:00', '122833' );
+
+-- Medicamentos
+INSERT INTO Medicamento VALUES( 'Vasodilatex', 300, 'cmp' );
+INSERT INTO Medicamento VALUES( 'Antigripal-M', 560, 'cmp' );
+INSERT INTO Medicamento VALUES( 'Antibiotico-X', 50, 'amp' );
+INSERT INTO Medicamento VALUES( 'Tiroxina', 50, 'cmp' );
+INSERT INTO Medicamento VALUES( 'Aspirina', 300, 'cmp' );
+INSERT INTO Medicamento VALUES( 'Propanolol', 1000, 'cmp' );
+INSERT INTO Medicamento VALUES( 'Paracetamol', 1000, 'cmp' );
+INSERT INTO Medicamento VALUES( 'Morfina', 100, 'amp' );
+INSERT INTO Medicamento VALUES( 'Cortisol', 200, 'cmp' );
+INSERT INTO Medicamento VALUES( 'Omeprazol', 500, 'cmp' );
+
+-- ComTratamento
+INSERT INTO ComTratamento VALUES( 'Cortisol', 1, '2018-11-10 09:00:00', 10, 'oral' );
+INSERT INTO ComTratamento VALUES( 'Paracetamol', 2, '2018-10-10 09:00:00', 20, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Cortisol', 5, '2018-11-10 09:00:00', 10, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Antibiotico-X', 5, '2018-11-10 09:00:00', 2, 'venoso'  );
+INSERT INTO ComTratamento VALUES( 'Paracetamol', 6, '2018-10-01 09:00:00', 20, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Vasodilatex', 6, '2018-10-01 09:00:00', 10, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Aspirina', 6, '2018-10-01 09:00:00', 10, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Propanolol', 6, '2018-10-01 09:00:00', 10, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Paracetamol', 7, '2018-10-01 09:00:00', 20, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Paracetamol', 8, '2018-09-01 09:00:00', 20, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Cortisol', 9, '2018-09-02 09:00:00', 10, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Paracetamol', 10, '2017-08-09 09:00:00', 30, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Omeprazol', 10, '2017-11-09 09:00:00', 2, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Cortisol', 3, '2018-10-10 09:00:00', 10, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Omeprazol', 7, '2017-10-01 09:00:00', 2, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Cortisol', 5, '2018-10-01 09:00:00', 10, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Antibiotico-X', 5, '2018-10-01 09:00:00', 1, 'venoso'  );
+INSERT INTO ComTratamento VALUES( 'Omeprazol', 5, '2017-10-09 09:00:00', 4, 'oral'  );
+INSERT INTO ComTratamento VALUES( 'Antibiotico-X', 5, '2017-10-09 09:00:00', 1, 'venoso'  );
+
+-- Administra
+INSERT INTO Administra VALUES( 1, '2018-11-10 09:00:00', '1234421' );
+INSERT INTO Administra VALUES( 2, '2018-10-10 09:00:00', '1234421' );
+INSERT INTO Administra VALUES( 5, '2018-11-10 09:00:00', '5274543' );
+INSERT INTO Administra VALUES( 6, '2018-10-01 09:00:00', '5274543' );
+INSERT INTO Administra VALUES( 7, '2018-10-01 09:00:00', '5374534' );
+INSERT INTO Administra VALUES( 8, '2018-09-01 09:00:00', '5374534' );
+INSERT INTO Administra VALUES( 9, '2018-09-02 09:00:00', '5374534' );
+INSERT INTO Administra VALUES( 10, '2017-08-09 09:00:00', '5274543' );
+INSERT INTO Administra VALUES( 10, '2017-11-09 09:00:00', '5274543' );
+INSERT INTO Administra VALUES( 3, '2018-10-10 09:00:00', '4123516' );
+INSERT INTO Administra VALUES( 7, '2017-10-01 09:00:00', '4123516' );
+INSERT INTO Administra VALUES( 5, '2018-10-01 09:00:00', '5274543' );
+INSERT INTO Administra VALUES( 5, '2017-10-09 09:00:00', '5274543' );
 
