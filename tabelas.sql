@@ -16,7 +16,7 @@ uf CHAR(2) NOT NULL
 
 -- A entidade Prontuario tem sua tabela própia
 -- Como o paciente tem uma relação de um para
- um como o prontuário utilizamos a mesma tabela para representar os dois.
+-- um como o prontuário utilizamos a mesma tabela para representar os dois.
 CREATE TABLE Prontuario (
 numero_prontuario INT NOT NULL PRIMARY KEY,
 rg CHAR(10) NOT NULL UNIQUE,
@@ -135,7 +135,9 @@ PRIMARY KEY(crm, numero_prontuario, data_inicio)
 -- A entidade 'equipe' recebe uma tabela própria
 CREATE TABLE Equipe (
 codigo_equipe CHAR(4) NOT NULL PRIMARY KEY,
-especialidade VARCHAR
+especialidade VARCHAR,
+nome_hospital VARCHAR,
+FOREIGN KEY(nome_hospital) REFERENCES Hospital
 );
 
 -- Relacionamento 'Integrante' tem cardinalidade (n, n) e por isso recebe tabela pŕopria

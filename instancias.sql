@@ -7,7 +7,7 @@ INSERT INTO Hospital VALUES( 'SANTA CASA', 'B', 'Porto Alegre', 'RS' );
 INSERT INTO Hospital VALUES( 'PRONTO SOCORRO', 'C', 'Porto Alegre', 'RS' );
 
 -- Insere Prontuarios (com pacientes)
-INSERT INTO Prontuario VALUES( 1, '1234567890', 'Luis Inacio Lula da Silva', '1949-03-15', 'M', 'brasileiro'); -- internado desde 10/11/2018
+INSERT INTO Prontuario VALUES( 1, '1234567890', 'Luis da Silva', '1949-03-15', 'M', 'brasileiro'); -- internado desde 10/11/2018
 INSERT INTO Prontuario VALUES( 2, '1235555890', 'Augusto Ribeiro', '1955-11-18', 'M', 'brasileiro');
 INSERT INTO Prontuario VALUES( 3, '3838383888', 'Angelina Pereira', '1985-09-01', 'F', 'brasileiro'); -- inernado entre 10/08/2017 e 15/12/2017
 INSERT INTO Prontuario VALUES( 4, '5555555555', 'Mario Cavalcante', '1965-02-01', 'F', 'brasileiro'); -- transexual -- internado entre 05/04/2018 e 20/05/2018
@@ -19,7 +19,7 @@ INSERT INTO Prontuario VALUES( 9, '5948128946', 'Giovane Silva Ribeiro Cavalcant
 INSERT INTO Prontuario VALUES( 10, '599159912', 'Ricardo Moraes', '1988-05-01', 'M', 'brasileiro'); -- internado entre 09/11/2017 e 15/11/2017
 
 -- Visitane
-INSERT INTO Visitante VALUES( '1111111111', 'Haddad');
+INSERT INTO Visitante VALUES( '1111111111', 'Fernando');
 INSERT INTO Visitante VALUES( '2222222222', 'Joao');
 INSERT INTO Visitante VALUES( '3333333333', 'Maria');
 INSERT INTO Visitante VALUES( '4444444444', 'Afonso');
@@ -131,6 +131,7 @@ INSERT INTO Funcionario VALUES( 19, 'Ana', 10400 );
 INSERT INTO Funcionario VALUES( 20, 'Livia', 12000 );
 INSERT INTO Funcionario VALUES( 21, 'Anabelle', 12000 );
 INSERT INTO Funcionario VALUES( 22, 'Maurício', 12200 );
+INSERT INTO Funcionario VALUES( 23, 'Abel', 12200 );
 
 -- Medicos
 INSERT INTO Medica VALUES( 1, '120931', NULL);
@@ -142,8 +143,9 @@ INSERT INTO Medica VALUES( 6, '273789', 'Cirurgião Tórax');
 INSERT INTO Medica VALUES( 7, '538374', 'Cardiologista');
 INSERT INTO Medica VALUES( 8, '435717', 'Nefrologista');
 INSERT INTO Medica VALUES( 9, '521345', 'Cardiologista');
-INSERT INTO Medica VALUES( 10, '123444', 'Socorrista');
+INSERT INTO Medica VALUES( 10, '123444', NULL);
 INSERT INTO Medica VALUES( 21, '231231', 'Cirurgão Cardiaco');
+INSERT INTO Medica VALUES( 23, '231984', 'Nefrologista');
 
 -- Enfermeiras
 INSERT INTO Enfermeira VALUES( 11, '1234421', NULL);
@@ -183,6 +185,7 @@ INSERT INTO Trabalho VALUES( 20, 'PRONTO SOCORRO' );
 INSERT INTO Trabalho VALUES( 20, 'SANTA CASA' );
 INSERT INTO Trabalho VALUES( 21, 'SANTA CASA' );
 INSERT INTO Trabalho VALUES( 22, 'SANTA CASA' );
+INSERT INTO Trabalho VALUES( 23, 'SANTA CASA' );
 
 -- TODO: Trigger: verificar se médico assistente trabalha no mesmo hospital da internação
 
