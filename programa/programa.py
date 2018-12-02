@@ -2,6 +2,7 @@
 import sys, os
 import psycopg2
 import queries
+import insertion
 
 DEFAULT_USER_PASS=1
 DB_NAME="Rede_hospitais"
@@ -55,8 +56,7 @@ def main():
 
     optFunct= {
                   "1": queries.optQuery,
-                  "2": optInsertion,
-                  "3": optAlter
+                  "2": insertion.optInsertion,
                 }.get(opt, optError)
     
     optFunct(conn)

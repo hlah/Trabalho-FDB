@@ -45,7 +45,7 @@ WHERE Funcionario.nome = %s AND \
 	AND (Internacao.data_fim IS NULL OR Internacao.data_fim >= %s);"
     cur.execute(sqlStr,(medico,data,data))
     rows = cur.fetchall()
-    print("The number of pacients: ", cur.rowcount)
+    print("The number of patients: ", cur.rowcount)
     for row in rows:
         print(row)
 
@@ -126,19 +126,19 @@ def Query5(cur):
     os.system('clear');
     print('5 - Lista de hospitais com o mesmo suporte que um dado hospital')
     hospital= str(input('Nome do hospital: '))
+    print(hospital)
     sqlStr="SELECT nome_hospital \
 FROM Hospital H1 \
 WHERE NOT EXISTS (  \
-	SELECT DISTINCT * \
-	FROM Medica NATURAL JOIN Trabalho \
-		NATURAL JOIN Hospital \
+        SELECT DISTINCT * \
+        FROM Medica NATURAL JOIN Trabalho \
+                NATURAL JOIN Hospital \
 	WHERE nome_hospital = %s AND especialidade IS NOT NULL AND especialidade NOT IN ( \
-		SELECT DISTINCT especialidade \
-		FROM Medica NATURAL JOIN Trabalho \
-			NATURAL JOIN Hospital \
-		WHERE Hospital.nome_hospital = H1.nome_hospital AND especialidade IS NOT NULL \
-	) );"
-    cur.execute(sqlStr,(hospital))
+                SELECT DISTINCT especialidade \
+                FROM Medica NATURAL JOIN Trabalho \
+                    NATURAL JOIN Hospital \
+                WHERE Hospital.nome_hospital = H1.nome_hospital AND especialidade IS NOT NULL) );"
+    cur.execute(sqlStr,(hospital,))
     rows = cur.fetchall()
     print("The number of entries: ", cur.rowcount)
     for row in rows:
