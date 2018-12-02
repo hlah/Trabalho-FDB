@@ -37,6 +37,7 @@ HAVING COUNT(*) = (
 );
 
 -- Doença mais diagnosticada uma especialidade 
+-- Entrada: especialidade('Pneumologista')
 SELECT Doenca.nome, COUNT(DISTINCT (cid, data_diag, numero_prontuario))
 FROM Medica NATURAL JOIN Assiste
 	NATURAL JOIN Internacao
@@ -57,7 +58,7 @@ HAVING COUNT(DISTINCT (cid, data_diag, numero_prontuario)) = (
 		WHERE especialidade = 'Pneumologista'
 		GROUP BY (cid, Doenca.nome)
 	) AS diags
-)
+);
 
 -- Retorna quais hospitais tem todas as especialidades de um dado hospital
 -- Entrada: hospital( 'PRONTO SOCORRO' )
@@ -73,7 +74,7 @@ WHERE NOT EXISTS (
 			NATURAL JOIN Hospital
 		WHERE Hospital.nome_hospital = H1.nome_hospital AND especialidade IS NOT NULL
 	)
-)
+);
 
 -- Retorna Exames que um paciente fez em uma dada internação
 -- Entrada: numero_prontuario ( 5 ) e data da internação ( '2018-11-10' )
